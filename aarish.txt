@@ -1,1 +1,18 @@
-this is my exam file 
+
+>> cluster info 
+kubectl cluster-info                  # Show cluster information
+kubectl config get-contexts           # List kubeconfig contexts
+kubectl config use-context NAME       # Switch context
+kubectl get nodes                     # List all nodes in the cluster
+
+
+>> POD MANAGEMENT 
+kubectl get pods                      # List all Pods
+kubectl get pods -o wide              # Show detailed Pod info
+kubectl describe pod POD_NAME         # Inspect a Pod
+kubectl delete pod POD_NAME           # Delete a Pod
+kubectl logs POD_NAME                 # View logs from a Pod
+kubectl exec -it POD_NAME -- bash     # SSH into a Pod (if bash available)
+kubectl port-forward POD_NAME 8080:80 # Forward Pod port to localhost
+
+
