@@ -1,5 +1,6 @@
 
->> cluster info 
+>> CLUSTER INFO 
+
 kubectl cluster-info                  # Show cluster information
 kubectl config get-contexts           # List kubeconfig contexts
 kubectl config use-context NAME       # Switch context
@@ -7,6 +8,7 @@ kubectl get nodes                     # List all nodes in the cluster
 
 
 >> POD MANAGEMENT 
+
 kubectl get pods                      # List all Pods
 kubectl get pods -o wide              # Show detailed Pod info
 kubectl describe pod POD_NAME         # Inspect a Pod
@@ -16,3 +18,27 @@ kubectl exec -it POD_NAME -- bash     # SSH into a Pod (if bash available)
 kubectl port-forward POD_NAME 8080:80 # Forward Pod port to localhost
 
 
+>>DEPLOYMENT MANAGEMENT
+
+kubectl create deployment NAME --image=IMAGE     # Create a Deployment
+kubectl get deployments                          # List Deployments
+kubectl describe deployment NAME                 # Inspect a Deployment
+kubectl delete deployment NAME                   # Delete a Deployment
+kubectl scale deployment NAME --replicas=3       # Scale up/down
+kubectl rollout restart deployment NAME          # Restart the Deployment
+kubectl rollout status deployment NAME           # Check rollout progress
+
+>> YAML BASED RESOURCE MANAGEMENT
+
+kubectl apply -f file.yaml       # Apply a config file
+kubectl delete -f file.yaml      # Delete using a config file
+kubectl edit deployment NAME     # Edit a live deployment
+kubectl get all                  # List all resources in current namespace
+
+
+>> SERVICE MANAGEMENT
+
+kubectl get svc                              # List Services
+kubectl expose deployment NAME --port=80 --target-port=8080 --type=NodePort
+                                             # Expose a Deployment
+kubectl describe svc SERVICE_NAME            # Detailed info about a Service
