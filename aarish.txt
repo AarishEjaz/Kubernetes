@@ -42,3 +42,19 @@ kubectl get svc                              # List Services
 kubectl expose deployment NAME --port=80 --target-port=8080 --type=NodePort
                                              # Expose a Deployment
 kubectl describe svc SERVICE_NAME            # Detailed info about a Service
+
+
+>> NAMESPACE MANAGEMENT
+
+kubectl get namespaces                       # List Namespaces
+kubectl create namespace NAME                # Create a Namespace
+kubectl delete namespace NAME                # Delete a Namespace
+kubectl config set-context --current --namespace=NAME
+                                             # Set default namespace
+
+>> OTHER USEFUL COMMANDS
+
+kubectl top pod                              # Show Pod resource usage (requires metrics server)
+kubectl api-resources                        # List all API resource types
+kubectl explain pod                          # Show Pod schema and field descriptions
+
